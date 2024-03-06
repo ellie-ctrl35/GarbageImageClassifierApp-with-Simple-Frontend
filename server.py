@@ -8,7 +8,7 @@ import numpy as np
 app = FastAPI()
 
 # CORS middleware configuration
-origins = ["http://localhost:3000", "http://127.0.0.1:3000"]
+origins = ["http://localhost:3000"] # Adjust according to your frontend URL
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -18,7 +18,8 @@ app.add_middleware(
 )
 
 # Load the trained model
-model = load_model('/Users/mac/Documents/ModelTraining-Backend-FASTAPI/model')
+model_path = '/Users/mac/Documents/ModelTraining-Backend-FASTAPI/model'  # Update the model path
+model = load_model(model_path)
 
 # Class names
 class_names = ['cardboard', 'glass', 'metal', 'paper', 'plastic', 'trash']
